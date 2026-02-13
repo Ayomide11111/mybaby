@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eunice Baby 💖</title>
+
+<!-- Keep the same sound (starts after user tap) -->
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:"Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    padding:14px;
+    overflow:hidden;
+  }
+
+  .screen{
+    width:100%;
+    max-width:520px;
+  }
+
+  .card{
+    background: rgba(255,255,255,0.96);
+    padding:32px 28px;
+    border-radius:22px;
+    box-shadow:0 18px 42px rgba(0,0,0,.28);
+    text-align:left;
+  }
+
+  .top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+
+  h1{
+    margin:0;
+    color:#ff4d6d;
+    font-size:26px;
+    line-height:1.2;
+  }
+
+  .pill{
+    border:2px solid #ff4d6d;
+    color:#ff4d6d;
+    background:white;
+    border-radius:999px;
+    padding:10px 14px;
+    font-weight:700;
+    cursor:pointer;
+    font-size:14px;
+    transition: transform .2s ease;
+    white-space:nowrap;
+  }
+  .pill:hover{ transform: scale(1.03); }
+
+  p{
+    margin:12px 0;
+    font-size:16px;
+    line-height:1.75;
+    color:#2f2f2f;
+  }
+
+  .list{
+    margin:16px 0 0;
+    padding:14px 16px;
+    border-radius:18px;
+    background: rgba(255,77,109,0.08);
+  }
+  .list h2{
+    margin:0 0 10px;
+    color:#b7223a;
+    font-size:16px;
+  }
+  .list ul{
+    margin:0;
+    padding-left:18px;
+  }
+  .list li{
+    margin:8px 0;
+    font-size:15.5px;
+  }
+
+  .signature{
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid rgba(0,0,0,0.08);
+    font-style: italic;
+    color:#555;
+  }
+
+  .small{
+    margin-top:10px;
+    font-size:13px;
+    color:#666;
+    opacity:.9;
+  }
+
+  /* Fade in */
+  .fade{
+    opacity:0;
+    transform: translateY(10px);
+    animation: fadeIn 700ms ease forwards;
+  }
+  @keyframes fadeIn{
+    to{ opacity:1; transform: translateY(0); }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="screen fade">
+  <div class="card">
+    <div class="top">
+      <h1>Eunice Baby 💖💞</h1>
+      <button class="pill" onclick="toggleMusic()">▶︎ Play music</button>
+    </div>
+
+    <p>
+      I know I already asked you to be my Valentine…<br>
+      but today I just want to remind you of something simple:
+      <strong>I’m grateful for you.</strong>
+    </p>
+
+    <p>
+      You bring peace into my life in a way I didn’t know I needed.
+      You make my days lighter, my smile real, and my heart feel full 😌❤️
+      <br><br>
+      <strong>Idunnu mi</strong>… you mean a lot to me 🥹
+    </p>
+
+    <div class="list">
+      <h2>Three things I love about you:</h2>
+      <ul>
+        <li>The way you care — it’s natural and it’s rare 🤍</li>
+        <li>The way you make me feel understood, even without many words 🫶</li>
+        <li>The way you just exist and somehow make everything better 💗</li>
+      </ul>
+    </div>
+
+    <p>
+      I’m looking forward to making more memories with you — not just on Valentine’s Day,
+      but always.
+    </p>
+
+    <div class="signature">
+      With love,<br>
+      <strong>Ayomide</strong> 💘
+      <div class="small">Tap “Play music” if it’s silent (phones block autoplay sometimes).</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const music = document.getElementById("bgMusic");
+  const btn = document.querySelector(".pill");
+
+  function toggleMusic(){
+    if (music.paused){
+      music.play().then(()=>{
+        btn.textContent = "⏸ Pause music";
+      }).catch(()=>{
+        // If blocked, user can tap again
+        btn.textContent = "▶︎ Tap to play";
+      });
+    } else {
+      music.pause();
+      btn.textContent = "▶︎ Play music";
+    }
+  }
+</script>
+
+</body>
+</html>
